@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1025344744774",
+    "project_id": "mns-zone-aa78d",
+    "storage_bucket": "mns-zone-aa78d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1025344744774:android:cde730865f016b63adc947",
+        "android_client_info": {
+          "package_name": "com.mnszone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1025344744774-i3nn96uj1q0kah8u392ud10s5st52pgg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2DpWxjuusht1wyovjs4MGXaw_QqzCbnw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1025344744774-i3nn96uj1q0kah8u392ud10s5st52pgg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
