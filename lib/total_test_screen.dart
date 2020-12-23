@@ -42,7 +42,7 @@ class _TotalTestScreenState extends State<TotalTestScreen> {
                   child: RaisedButton(
                       child: Text(testList[index],style: TextStyle(fontSize: 18),
                       ),
-                    onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (ctx)=>QuestionCategory("Test 1"))),
+                    onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (ctx)=>QuestionCategory(testList[index]))),
                   ),
                 );
               },

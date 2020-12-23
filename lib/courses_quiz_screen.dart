@@ -16,10 +16,14 @@ class CoursesQuiz extends StatefulWidget {
 class _CoursesQuizState extends State<CoursesQuiz> {
   List<dynamic> list ;
 
+  var check;
+
   List<dynamic> resultList = [];
   String cat;
 
   fetchData(){
+    getEmail();
+
     if(widget.title=='Biology')
       cat = 'biology';
     if(widget.title=='General English')
@@ -30,6 +34,14 @@ class _CoursesQuizState extends State<CoursesQuiz> {
       cat = 'chemistry';
     if(widget.title=='General Intelligence')
       cat = 'gk';
+
+    var getCheck = Firestore.instance.collection(widget.testName).document('results');
+    getCheck.snapshots().listen((snapShot) {
+      setState(() {
+        check =  snapShot.data[email][cat];
+        print("CHECK"+check.toString());
+      });
+    });
 
     var document = Firestore.instance.collection(widget.testName).document(cat);
     document.snapshots().listen((snapShot) {
@@ -44,10 +56,15 @@ class _CoursesQuizState extends State<CoursesQuiz> {
     });
   }
 
-  submitExam()async{
-
+  getEmail()async{
     SharedPreferences prefs =await SharedPreferences.getInstance();
-    String email =  prefs.getString('email');
+    email =  prefs.getString('email');
+  }
+
+  String email;
+
+  submitExam()async{
+    getEmail();
     await Firestore.instance.collection(widget.testName).document("results").setData(
         {
           // "email":email,
@@ -129,7 +146,8 @@ class _CoursesQuizState extends State<CoursesQuiz> {
       child: SafeArea(
         child: Scaffold(
           appBar: AppBar(title: Text(widget.title),),
-          body: list==null?Center(child: CircularProgressIndicator()):Container(
+          body: list==null?Center(child: CircularProgressIndicator()):
+          check!=null?Container(child: Text('Thank You'),):Container(
             height: MediaQuery.of(context).size.height *0.9,
             child: SingleChildScrollView(
               child: Container(
