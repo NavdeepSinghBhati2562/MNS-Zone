@@ -22,7 +22,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
-        primaryColor: Colors.redAccent
+        primaryColor: Colors.redAccent,
+        fontFamily: "Lexend"
       ),
       home: StreamBuilder(stream: FirebaseAuth.instance.onAuthStateChanged, builder: (ctx, userSnapshot) {
         if (userSnapshot.hasData) {

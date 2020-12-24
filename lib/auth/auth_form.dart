@@ -53,6 +53,8 @@ class _AuthFormState extends State<AuthForm> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
+                  Text("Login to Your Account",style: TextStyle(fontSize: 20),),
+                  SizedBox(height: 20,),
                   TextFormField(
                     key: ValueKey('email'),
                     autocorrect: false,
@@ -77,8 +79,8 @@ class _AuthFormState extends State<AuthForm> {
                   TextFormField(
                     key: ValueKey('password'),
                     validator: (value) {
-                      if (value.isEmpty || value.length < 7) {
-                        return 'Password must be at least 7 characters long.';
+                      if (value.isEmpty) {
+                        return 'Please enter a valid Password';
                       }
                       return null;
                     },
@@ -92,9 +94,16 @@ class _AuthFormState extends State<AuthForm> {
                   if (widget.isLoading) CircularProgressIndicator(),
                   if (!widget.isLoading)
                     RaisedButton(
-                      child: Text('Login'),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18.0),
+                      ),
+                      color: Colors.blue[600],
+                      child: Text('Login',style: TextStyle(fontFamily: "Lexend",color: Colors.white),),
                       onPressed: _trySubmit,
                     ),
+                   SizedBox(height: 10,),
+                   Text('Designed and Developed by NSB Creation',style: TextStyle(color: Colors.grey),),
+
                 ],
               ),
             ),

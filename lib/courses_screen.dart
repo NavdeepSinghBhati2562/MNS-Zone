@@ -30,6 +30,7 @@ class _CoursesState extends State<Courses> {
                     flex: 4,
                       child: Image.asset('assets/mnsofficer.jpg')
                   ),
+                  Divider(thickness: 2,),
                   Expanded(
                     flex:1 ,
                       child: Row(
